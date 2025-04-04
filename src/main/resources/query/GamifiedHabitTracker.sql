@@ -1,6 +1,6 @@
 CREATE DATABASE gamified_Habit_Tracker;
 
-DROP DATABASE gamified_Habit_Tracker;
+-- DROP DATABASE gamified_Habit_Tracker;
 
 CREATE TABLE achievement(
                             achievement_id uuid PRIMARY KEY,
