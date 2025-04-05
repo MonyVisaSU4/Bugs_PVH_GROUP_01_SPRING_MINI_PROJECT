@@ -1,6 +1,9 @@
 CREATE DATABASE gamified_Habit_Tracker;
 
--- DROP DATABASE gamified_Habit_Tracker;
+-- drop database gamified_Habit_Tracker;
+
+CREATE EXTENSION "uuid-ossp";
+
 
 CREATE TABLE achievement(
                             achievement_id uuid PRIMARY KEY,
@@ -11,7 +14,7 @@ CREATE TABLE achievement(
 );
 
 CREATE TABLE app_users(
-                          app_user_id uuid PRIMARY KEY,
+                          app_user_id uuid default uuid_generate_v4() PRIMARY KEY,
                           username VARCHAR(50),
                           email VARCHAR(50),
                           password VARCHAR(50),
@@ -22,8 +25,9 @@ CREATE TABLE app_users(
                           created_at timestamp
 );
 
+
 CREATE TABLE habits(
-                       habit_id uuid PRIMARY KEY,
+                       habit_id uuid default uuid_generate_v4() PRIMARY KEY,
                        title VARCHAR(50),
                        description VARCHAR(50),
                        frequency VARCHAR(50),
@@ -32,6 +36,7 @@ CREATE TABLE habits(
                        created_at timestamp,
                        FOREIGN KEY(app_user_id) REFERENCES app_users(app_user_id)
 );
+
 
 CREATE TABLE habit_logs(
                            habit_log_id uuid PRIMARY KEY,
@@ -89,6 +94,10 @@ INSERT INTO app_user_achievements (app_user_achievement_id, app_user_id, achieve
                                                                                              ('50000000-0000-4000-a000-000000000003', '20000000-0000-4000-a000-000000000002', '10000000-0000-4000-a000-000000000003'),
                                                                                              ('50000000-0000-4000-a000-000000000004', '20000000-0000-4000-a000-000000000003', '10000000-0000-4000-a000-000000000001'),
                                                                                              ('50000000-0000-4000-a000-000000000005', '20000000-0000-4000-a000-000000000004', '10000000-0000-4000-a000-000000000004');
+
+UPDATE habits SET title = 'HHH', description = 'UUU', frequency = 'Daily' WHERE habit_id = '5e9b128f-03df-46f1-9368-475bee5303e6';
+
+DELETE FROM habits WHERE habit_id = '123883c5-dc49-4334-b798-34812c77ee26' returning *;
 
 SELECT * FROM habits;
 SELECT * FROM achievement;
