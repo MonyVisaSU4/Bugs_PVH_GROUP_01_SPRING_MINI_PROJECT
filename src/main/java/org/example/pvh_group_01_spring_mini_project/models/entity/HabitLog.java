@@ -16,7 +16,8 @@ public class HabitLog {
     private LocalDate logDate;
     private Status status;
     private Integer xpEarned;
-    private UUID habitId; // Changed from Integer to UUID
+    private Habit habit; //Changed from HabitId to Habit
+//    private UUID habitId; // Changed from Integer to UUID
     private LocalDateTime createdAt;
 
     public enum Status{

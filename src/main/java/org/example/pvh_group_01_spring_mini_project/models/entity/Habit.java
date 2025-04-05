@@ -16,6 +16,11 @@ public class Habit {
     private String description;
     private String frequency;
     private Boolean isActive;
+//    private UUID appUserResponse;
     private Profile appUserResponse;
     private LocalDateTime createAt;
+
+    public Habit(UUID habitId) {
+        this.habitId = habitId;
+    }
 }
