@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ApiRespones<T> {
+public class ApiResponse<T> {
     private Boolean success;
     private String message;
     private HttpStatus status;

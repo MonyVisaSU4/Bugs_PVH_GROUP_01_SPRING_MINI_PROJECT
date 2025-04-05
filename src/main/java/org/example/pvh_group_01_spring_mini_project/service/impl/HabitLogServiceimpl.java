@@ -24,7 +24,7 @@ public class HabitLogServiceimpl implements HabitLogService {
 
     @Override
     public List<HabitLog> getAllHabitLog() {
-        return List.of();
+        return habitLogRepository.getAllHabitLog();
     }
 
 }
