@@ -8,15 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AuthServiceimpl implements AchievementService {
-    private final AchievementRepository achievementRepository;
+public class AuthServiceimpl{
 
-    public AuthServiceimpl(AchievementRepository achievementRepository) {
-        this.achievementRepository = achievementRepository;
-    }
-
-    @Override
-    public List<Achievement> getAllAch() {
-        return achievementRepository.getAllAch();
-    }
 }
