@@ -24,7 +24,7 @@ public class AchievementController {
     }
 
     @GetMapping
-    public ResponseEntity<ApiRespones<List<Achievement>>> getAll(@RequestParam Integer page, @RequestParam Integer size){
+    public ResponseEntity<ApiRespones<List<Achievement>>> getAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer size){
         ApiRespones<List<Achievement>> respones = ApiRespones.<List<Achievement>>builder()
                 .success(true)
                 .status(HttpStatus.OK)
@@ -34,13 +34,13 @@ public class AchievementController {
         return ResponseEntity.ok(respones);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ApiRespones<Achievement>> getAllById(@Param("id") Integer id, @RequestParam Integer page, @RequestParam Integer size){
-        ApiRespones<Achievement> respones1 = ApiRespones.<Achievement>builder()
+    @GetMapping("/app-users")
+    public ResponseEntity<ApiRespones<List<Achievement>>> getAllById(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer size){
+        ApiRespones<List<Achievement>> respones1 = ApiRespones.<List<Achievement>>builder()
                 .success(true)
                 .status(HttpStatus.OK)
                 .message("Successfully")
-                .payload(achievementService.getAchByid(id, page, size))
+                .payload(achievementService.getAchByid(page, size))
                 .timestamps(LocalDateTime.now()).build();
         return ResponseEntity.ok(respones1);
     }

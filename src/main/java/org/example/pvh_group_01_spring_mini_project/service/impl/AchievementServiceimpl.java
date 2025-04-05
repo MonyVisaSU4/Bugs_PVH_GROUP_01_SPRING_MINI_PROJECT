@@ -21,7 +21,7 @@ public class AchievementServiceimpl implements AchievementService {
     }
 
     @Override
-    public Achievement getAchByid(Integer appid, Integer page, Integer size) {
-        return achievementRepository.getAchByid(appid, page, size);
+    public List<Achievement> getAchByid(Integer page, Integer size) {
+        return achievementRepository.getAchByid(page, size);
     }
 }

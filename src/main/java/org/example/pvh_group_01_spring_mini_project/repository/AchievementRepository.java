@@ -1,9 +1,6 @@
 package org.example.pvh_group_01_spring_mini_project.repository;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.example.pvh_group_01_spring_mini_project.models.entity.Achievement;
 import org.example.pvh_group_01_spring_mini_project.util.UUIDTypeHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +20,10 @@ public interface AchievementRepository {
     List<Achievement> getAllAch(Integer page, Integer size);
 
     @Select("""
-        SELECT * FROM achievemen LIMIT #{size} OFFSET (#{page}-1) * #{size};
+        SELECT a.achievement_id,a.title,a.description,a.badge,a.xp_required
+        FROM app_user_achievements aua LEFT JOIN achievement a on aua.achievement_id = a.achievement_id
+        LIMIT #{size} OFFSET (#{page}-1) * #{size};
     """)
-    @RequestMapping("AchievementMapper")
-    Achievement getAchByid(Integer appid, Integer page, Integer size);
+    @ResultMap("AchievementMapper")
+    List<Achievement> getAchByid(Integer page, Integer size);
 }
