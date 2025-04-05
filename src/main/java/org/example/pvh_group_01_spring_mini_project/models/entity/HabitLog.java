@@ -12,7 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HabitLog {
-    private UUID habitLogId = UUID.randomUUID();
+    private UUID habitLogId;
     private LocalDate logDate;
     private enum status{
         COMPLETED,

@@ -11,7 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Profile {
-    private UUID appUserId = UUID.randomUUID();
+    private UUID appUserId;
     private String username;
     private String email;
     private Integer level;
