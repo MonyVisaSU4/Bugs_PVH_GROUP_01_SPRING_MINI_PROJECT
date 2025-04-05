@@ -12,6 +12,7 @@ public interface HabitLogRepository {
     @Select(" INSERT INTO  habit_logs (status, habit_id) VALUES (#{status}, #{habitId})")
     HabitLog addHabitLog(HabitLogRequest habitLogRequest);
 
+
     @Select(" SELECT * FROM habit_logs")
     List<HabitLog> getAllHabitLog();
 }
