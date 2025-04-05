@@ -12,13 +12,15 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HabitLog {
-    private UUID habitLogId = UUID.randomUUID();
+    private UUID habitLogId;
     private LocalDate logDate;
-    private enum status{
-        COMPLETED,
-        MISSED
-    }
+    private Status status;
     private Integer xpEarned;
     private Habit habit;
     private LocalDateTime createdAt;
+
+    public enum Status{
+        COMPLETED,
+        MISSED
+    }
 }
