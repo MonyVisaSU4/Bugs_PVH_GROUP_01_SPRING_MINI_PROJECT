@@ -25,7 +25,6 @@ CREATE TABLE app_users(
                           created_at timestamp
 );
 
-
 CREATE TABLE habits(
                        habit_id uuid default uuid_generate_v4() PRIMARY KEY,
                        title VARCHAR(50),

@@ -18,7 +18,7 @@ public class Habit extends UUIDTypeHandler {
     private String description;
     private String frequency;
     private Boolean isActive;
-    private UUID profileId;
+    private Profile profileId;
     private LocalDateTime createAt;
 
 }

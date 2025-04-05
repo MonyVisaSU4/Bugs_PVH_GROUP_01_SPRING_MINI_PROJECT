@@ -18,7 +18,7 @@ public interface HabitRepository {
     @Results(id = "habitMapper", value = {
             @Result(property = "habitId", column = "habit_id", typeHandler = UUIDTypeHandler.class),
             @Result(property = "isActive", column = "is_active"),
-            @Result(property = "profileId", column = "app_user_id", typeHandler = UUIDTypeHandler.class),
+            @Result(property = "profileId", column = "app_user_id", typeHandler = UUIDTypeHandler.class, one = @One(select = "org.example.pvh_group_01_spring_mini_project.repository.ProfileRepository.getProfileById")),
             @Result(property = "createAt", column = "created_at")
     })
     Habit deleteHabit(UUID id);
@@ -31,4 +31,11 @@ public interface HabitRepository {
     """)
     @ResultMap("habitMapper")
     Habit updateHabit(UUID id, @Param("request") HabitRequest habitRequest);
+
+    @Select("""
+        SELECT * FROM habits
+        WHERE habit_id = #{habitId}
+    """)
+    @ResultMap("habitMapper")
+    Habit getHabitById(UUID habitId);
 }

@@ -26,4 +26,9 @@ public class HabitServiceimpl implements HabitService {
     public Habit updateHabit(UUID id, HabitRequest habitRequest) {
         return habitRepository.updateHabit(id, habitRequest);
     }
+
+    @Override
+    public Habit getHabitById(UUID habitId) {
+        return habitRepository.getHabitById(habitId);
+    }
 }
