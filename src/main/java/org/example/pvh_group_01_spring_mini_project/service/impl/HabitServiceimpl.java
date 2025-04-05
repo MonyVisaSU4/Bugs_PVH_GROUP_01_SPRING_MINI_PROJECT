@@ -7,6 +7,7 @@ import org.example.pvh_group_01_spring_mini_project.service.HabitService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class HabitServiceimpl implements HabitService {
@@ -21,8 +22,8 @@ public class HabitServiceimpl implements HabitService {
     }
 
     @Override
-    public Habit getHabitById(int id) {
-        return null;
+    public Habit getHabitById(UUID habitId) {
+        return habitRepository.getHabitById(habitId);
     }
 
     @Override

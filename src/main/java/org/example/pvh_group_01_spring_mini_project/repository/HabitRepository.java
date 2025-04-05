@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.*;
 import org.example.pvh_group_01_spring_mini_project.models.entity.Habit;
 
 import java.util.List;
+import java.util.UUID;
 
 @Mapper
 public interface HabitRepository {
@@ -23,4 +24,12 @@ public interface HabitRepository {
     })
 
     List<Habit> getAllHabits(Integer page, Integer size);
+
+
+    @Select("""
+        SELECT * FROM habits
+        WHERE habit_id = #{habitId}
+    """)
+    @ResultMap("habitMapper")
+    Habit getHabitById(UUID habitId);
 }
