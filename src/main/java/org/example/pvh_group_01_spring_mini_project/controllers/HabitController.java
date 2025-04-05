@@ -40,7 +40,7 @@ public class HabitController {
     public ResponseEntity<ApiRespones<Habit>> getHabitById(@PathVariable("habit-id") UUID habitId)  {
         ApiRespones<Habit> apiRespones = ApiRespones.<Habit>builder()
                 .success(true)
-                .message("Habit fetched successfully!")
+                .message("Habit fetched successfully!!!")
                 .status(HttpStatus.OK)
                 .payload(habitService.getHabitById(habitId))
                 .timestamps(LocalDateTime.now())
